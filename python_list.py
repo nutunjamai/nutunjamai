@@ -1,23 +1,17 @@
-import os
-
-def generate_file_list(directory="."):
-    file_list = []
-    try:
-        for file in os.listdir(directory):
-            file_path = os.path.join(directory, file)
-            if os.path.isfile(file_path):
-                file_dict = {
-                    "file_name": file,
-                    "file_path": os.path.abspath(file_path),
-                    "file_size": os.path.getsize(file_path)
-                }
-                file_list.append(file_dict)
-    except Exception as e:
-        print(f"An error occurred: {e}")
-    return file_list
+import os 
+def generate_fileList(): 
+      fileList = []  
+      for file in os.listdir():  
+             if os.path.isfile(file):  
+                fileDict = {  
+                "file_name": file,                     
+                "file_path": os.path.abspath(file),    
+                "file_size": os.path.getsize(file)      
+            }
+                fileList.append(fileDict)   
+      return fileList    
 
 if __name__ == "__main__":
-    directory = "."  # You can change this to any directory path
-    files = generate_file_list(directory)
-    for file in files:
-        print(file)
+       files = generate_fileList()  
+       for file in files: 
+            print(file)
